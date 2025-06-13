@@ -10,6 +10,7 @@ import homeStyle from "./Home.module.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Avatar from '@mui/material/Avatar';
 
 import { display } from "@mui/system";
 
@@ -328,6 +329,39 @@ const Home = () => {
         </Box>
         <Box className={homeStyle["service-image"]}></Box>
       </Box>
+      
+      {/* Contributors */}
+      <Box className={homeStyle["contributors-page"]}>
+        <Box>
+          <Typography sx={{fontSize:"2.5rem", fontWeight:"700"}}>
+            Get to know our Contributors
+          </Typography>
+          <Typography >
+            Skilled writers dedicted to your success
+          </Typography>
+        </Box>
+
+
+         <Box className={homeStyle["contributors"]}>
+    {[
+      { name: "Alice", img: "/avatar.jpg",role:"webdesigner" },
+      { name: "Bob", img: "/avatar.jpg",role:"Copywriter" },
+      { name: "Charlie", img: "/avatar.jpg" },
+      { name: "Diana", img: "/avatar.jpg" }
+    ].map((contributor, index) => (
+      <Box key={index} className={homeStyle["contributor-card"]}>
+
+        <Avatar sx={{ width: 56, height: 56 }}  alt={`${contributor.name}`} src={`${contributor.img}`} />
+
+        <Typography variant="h6" sx={{ fontWeight: 600 }}>
+          {contributor.name}
+        </Typography>
+      </Box>
+    ))}
+  </Box>
+
+      </Box>
+
     </>
   );
 };
